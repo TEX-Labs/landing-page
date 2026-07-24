@@ -15,7 +15,12 @@ export function CanvasRevealEffectDemo3() {
       className="h-[60rem] flex flex-col lg:flex-row overflow-hidden items-center justify-center bg-black w-full gap-4 mx-auto px-8 relative"
     >
       <div className="md:text-2xl text-2xl font-medium text-center text-white relative z-20 max-w-2xl mx-auto">
-        Our mission is to deliver end-to-end DeFi solutions to users by building real-time infrastructure like sockets and Telegram bots for alerts, tracking, and trading. Alongside that, we explore the integration of blockchain and AI through innovations such as smart contract scanning bots and AI meeting assistants that store summaries on-chain. Our goal is to make DeFi smarter, more accessible, and AI-enhanced.
+        Our mission is to deliver end-to-end DeFi solutions to users by building
+        real-time infrastructure like sockets and Telegram bots for alerts,
+        tracking, and trading. Alongside that, we explore the integration of
+        blockchain and AI through innovations such as smart contract scanning
+        bots and AI meeting assistants that store summaries on-chain. Our goal
+        is to make DeFi smarter, more accessible, and AI-enhanced.
       </div>
       <AnimatePresence>
         {hovered && (
