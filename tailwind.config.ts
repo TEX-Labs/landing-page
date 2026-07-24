@@ -15,12 +15,11 @@ const config: Config = {
   darkMode: "class",
   theme: {
     extend: {
-      animation: {
-        aurora: "aurora 60s linear infinite",
-        "meteor-effect": "meteor 5s linear infinite",
-        spotlight: "spotlight 2s ease .75s 1 forwards",
-      },
       keyframes: {
+        fadeUp: {
+          "0%": { opacity: "0", transform: "translateY(16px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
         aurora: {
           from: {
             backgroundPosition: "50% 50%, 50% 50%",
@@ -61,6 +60,35 @@ const config: Config = {
       colors: {
         "tex-purple": "#6D28D9",
         "tex-dark": "#020320",
+        // New professional palette
+        ink: {
+          DEFAULT: "#05060f", // page background (near-black navy)
+          800: "#0a0c1a",
+          700: "#0f1226",
+          600: "#151a33",
+        },
+        brand: {
+          DEFAULT: "#7c5cff", // violet
+          400: "#9d85ff",
+          500: "#7c5cff",
+          600: "#6d28d9",
+        },
+        accent: {
+          DEFAULT: "#38bdf8", // cyan / midnight blue
+          400: "#38bdf8",
+          500: "#0ea5e9",
+        },
+      },
+      fontFamily: {
+        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
+        display: ["var(--font-montserrat)", "system-ui", "sans-serif"],
+        mono: ["var(--font-mono)", "ui-monospace", "monospace"],
+      },
+      animation: {
+        aurora: "aurora 60s linear infinite",
+        "meteor-effect": "meteor 5s linear infinite",
+        spotlight: "spotlight 2s ease .75s 1 forwards",
+        "fade-up": "fadeUp 0.7s ease forwards",
       },
     },
   },

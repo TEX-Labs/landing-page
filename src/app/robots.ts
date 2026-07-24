@@ -1,18 +1,15 @@
 import type { MetadataRoute } from "next";
+import { site } from "@/config/site";
 
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
       {
-        userAgent: "Googlebot",
-        allow: ["/"],
-        disallow: "/private/",
-      },
-      {
-        userAgent: ["Applebot", "Bingbot"],
-        disallow: ["/"],
+        userAgent: "*",
+        allow: "/",
       },
     ],
-    sitemap: "https://www.texblabs.com/sitemap.xml",
+    sitemap: `${site.url}/sitemap.xml`,
+    host: site.url,
   };
 }

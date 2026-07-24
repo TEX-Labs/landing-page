@@ -22,7 +22,9 @@ export function SpotlightPreview() {
           <TypewriterEffect words={words} cursorClassName="bg-white" />
         </h1>
         <p className="mt-4 font-normal text-base text-neutral-300 max-w-lg text-center mx-auto">
-          We&apos;re building next-gen blockchain products with AI, sockets, and Telegram bots - offering real-time trading tools and intelligent on-chain solutions.
+          We&apos;re building next-gen blockchain products with AI, sockets, and
+          Telegram bots - offering real-time trading tools and intelligent
+          on-chain solutions.
         </p>
       </div>
     </div>

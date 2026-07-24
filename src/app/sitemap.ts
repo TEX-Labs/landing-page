@@ -1,20 +1,15 @@
 import { MetadataRoute } from "next";
+import { site } from "@/config/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const currentDate = new Date().toISOString();
 
   return [
     {
-      url: "https://www.texblabs.com",
-      lastModified: currentDate,
-      changeFrequency: "yearly",
-      priority: 1,
-    },
-    {
-      url: "https://www.texblabs.com/private",
+      url: site.url,
       lastModified: currentDate,
       changeFrequency: "monthly",
-      priority: 0.8,
+      priority: 1,
     },
   ];
 }

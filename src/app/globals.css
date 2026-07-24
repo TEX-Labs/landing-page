@@ -2,46 +2,111 @@
 @tailwind components;
 @tailwind utilities;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+:root {
+  --foreground-rgb: 226, 232, 240;
+  --background-rgb: 5, 6, 15;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  color: black;
-  background: black;
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-rgb));
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  /* Prevent decorative/animated elements (aurora, meteors, flip-words)
+     from creating a horizontal scrollbar on small screens. */
+  overflow-x: hidden;
 }
 
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@layer components {
+  /* Eyebrow / section label */
+  .eyebrow {
+    @apply font-mono text-xs uppercase tracking-[0.2em] text-brand-400;
+  }
+
+  /* Emphasis: solid brand color with a soft glow (no gradient text) */
+  .text-glow-brand {
+    color: #a996ff;
+    text-shadow: 0 0 28px rgba(124, 92, 255, 0.45);
+  }
+
+  /* Emphasis word with an animated accent underline */
+  .accent-underline {
+    position: relative;
+    white-space: nowrap;
+  }
+  .accent-underline::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0.06em;
+    height: 0.12em;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #7c5cff, #38bdf8);
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: underline-grow 0.7s 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+
+  @keyframes underline-grow {
+    to {
+      transform: scaleX(1);
+    }
+  }
+
+  /* Standard card surface */
+  .card-surface {
+    @apply rounded-2xl border border-white/10 bg-white/[0.02] backdrop-blur-sm transition-colors duration-300;
+  }
+  .card-surface:hover {
+    @apply border-white/20 bg-white/[0.04];
+  }
+
+  /* Section horizontal padding + max width */
+  .container-tex {
+    @apply mx-auto w-full max-w-6xl px-6 sm:px-8;
+  }
+}
+
+/* Legacy dropdown (mobile menu) */
 .dropdown {
   position: relative;
   display: inline-block;
 }
-
 .dropdown-menu {
   position: absolute;
   top: 100%;
-  left: 0;
-  background-color: rgba(255, 255, 254, 0);
+  right: 0;
+  min-width: 180px;
+  background-color: rgba(10, 12, 26, 0.9);
   list-style: none;
-  padding: 0;
+  padding: 8px;
   margin: 0;
   display: none;
-  backdrop-filter: blur(10px);
-  border-radius: 10px;
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
 }
-
 .dropdown-menu li {
-  padding: 10px 20px;
+  padding: 4px 8px;
   cursor: pointer;
 }
-
-.dropdown-menu li:hover {
-  background-color: rgba(255, 255, 254, 0);
-}
-
 .dropdown:hover .dropdown-menu {
   display: block;
 }
